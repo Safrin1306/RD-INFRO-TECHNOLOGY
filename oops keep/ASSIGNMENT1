@@ -1,0 +1,65 @@
+package assign1;
+
+abstract class SmartDevice {
+    String name;
+    boolean status;
+
+    SmartDevice(String name) {
+        this.name = name;
+        this.status = false;
+    }
+
+    void turnOn() {
+        status = true;
+        System.out.println(name + " is turned ON.");
+    }
+
+    void turnOff() {
+        status = false;
+        System.out.println(name + " is turned OFF.");
+    }
+
+    abstract void operate();
+}
+
+class SmartLight extends SmartDevice {
+    SmartLight(String name) {
+        super(name);
+    }
+
+    void operate() {
+        if (status)
+            System.out.println(name + " is lighting the room.");
+        else
+            System.out.println(name + " is OFF, can't operate.");
+    }
+}
+
+class SmartFan extends SmartDevice {
+    SmartFan(String name) {
+        super(name);
+    }
+
+    void operate() {
+        if (status)
+            System.out.println(name + " is spinning.");
+        else
+            System.out.println(name + " is OFF, can't operate.");
+    }
+}
+
+public class SmartDeviceDemo {
+    public static void main(String[] args) {
+        SmartDevice light = new SmartLight("Living Room Light");
+        SmartDevice fan = new SmartFan("Ceiling Fan");
+
+        light.turnOn();
+        light.operate();
+
+        fan.turnOn();
+        fan.operate();
+
+        light.turnOff();
+        fan.turnOff();
+    }
+}
