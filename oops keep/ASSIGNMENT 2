@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class PrimeGenerator {
+    
+    // Function to check if a number is prime
+    static boolean isPrime(int num) {
+        if (num <= 1) return false;
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        // Get how many primes to generate
+        System.out.print("Enter how many prime numbers to generate: ");
+        int n = sc.nextInt();
+        
+        int primes[] = new int[n];  // Array to store primes
+        int count = 0;              // Number of primes found
+        int num = 2;                // Start checking from 2
+        
+        // Keep finding primes until array is filled
+        while (count < n) {
+            if (isPrime(num)) {
+                primes[count] = num;
+                count++;
+            }
+            num++;
+        }
+        
+        // Print the generated prime numbers
+        System.out.println("Prime numbers are:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(primes[i] + " ");
+        }
+    }
+}
