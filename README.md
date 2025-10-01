@@ -1,2 +1,1 @@
-# RD-INFRO-TECHNOLOGY
-Internship tasks 
+Object oriented programming 
